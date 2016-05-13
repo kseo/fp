@@ -1,16 +1,8 @@
-module FP
-  ( module FP.AST
-  , module FP.Env
-  , module FP.Function
-  , module FP.Interpreter
-  , module FP.Parser
-  , module FP.Value
-  ) where
+module FP (module FP) where
 
-import FP.AST
-import FP.Env
-import FP.Function
-import FP.Interpreter
-import FP.Parser
-import FP.Value
-
+import FP.AST as FP
+import FP.Env as FP
+import FP.Function as FP
+import FP.Interpreter as FP
+import FP.Parser as FP
+import FP.Value as FP

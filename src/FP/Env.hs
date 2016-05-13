@@ -74,7 +74,7 @@ lookup symbol = do
   case reads symbol :: [(Integer, String)] of
     [(n, "")] -> return $ PreludeFunDef $ Function.select $ makeNumber n
     [(n, "r")] -> return $ PreludeFunDef $ Function.selectr $ makeNumber n
-    otherwise -> case Map.lookup symbol env of
-                   Just f -> return f
-                   Nothing -> throwError $ UndefinedFunction symbol
+    _ -> case Map.lookup symbol env of
+           Just f -> return f
+           Nothing -> throwError $ UndefinedFunction symbol
 

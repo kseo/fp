@@ -29,11 +29,11 @@ reverse (SequenceObject os) = SequenceObject $ Prelude.reverse os
 reverse _ = Bottom
 
 distl :: Object -> Object
-distl (SequenceObject [x, SequenceObject ys]) = SequenceObject $ zipWith (\x y -> SequenceObject [x, y]) (repeat x) ys
+distl (SequenceObject [x, SequenceObject ys]) = SequenceObject $ map (\y -> SequenceObject [x, y]) ys
 distl _ = Bottom
 
 distr :: Object -> Object
-distr (SequenceObject [SequenceObject xs, y]) = SequenceObject $ zipWith (\x y -> SequenceObject [x, y]) xs (repeat y)
+distr (SequenceObject [SequenceObject xs, y]) = SequenceObject $ map (\x -> SequenceObject [x, y]) xs
 distr _ = Bottom
 
 length :: Object -> Object

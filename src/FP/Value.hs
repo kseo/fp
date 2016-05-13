@@ -31,7 +31,7 @@ instance Show Atom where
 instance Show Object where
     show Bottom = "Bottom"
     show (AtomObject a) = show a
-    show (SequenceObject os) = "<" ++ (intercalate "," $ map show os) ++ ">"
+    show (SequenceObject os) = "<" ++ intercalate "," (map show os) ++ ">"
 
 emptySeq :: Object
 emptySeq = SequenceObject []

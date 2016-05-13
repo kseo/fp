@@ -50,7 +50,7 @@ interpFunApp (Constant c) o =
 
 interpFunApp (ApplyToAll f) o =
   case o of
-    SequenceObject os -> SequenceObject <$> (forM os $ interpFunApp f)
+    SequenceObject os -> SequenceObject <$> forM os (interpFunApp f)
     _ -> return Bottom
 
 interpFunApp (BinaryToUnary f a) o = interpFunApp f $ SequenceObject [a, o]
